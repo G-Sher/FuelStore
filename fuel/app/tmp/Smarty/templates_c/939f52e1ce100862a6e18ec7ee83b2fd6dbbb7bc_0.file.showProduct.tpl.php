@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-07 11:58:39
+/* Smarty version 3.1.33, created on 2019-05-07 21:18:31
   from 'C:\wamp64\www\FuelStore\fuel\app\views\home\showProduct.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd1ab2f22d7f6_30684786',
+  'unifunc' => 'content_5cd22e678083c0_17178250',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '939f52e1ce100862a6e18ec7ee83b2fd6dbbb7bc' => 
     array (
       0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\home\\showProduct.tpl',
-      1 => 1557244716,
+      1 => 1557278309,
       2 => 'file',
     ),
   ),
@@ -20,36 +20,36 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd1ab2f22d7f6_30684786 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd22e678083c0_17178250 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12320746885cd1ab2f1f6b50_40262163', "localstyle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15487520205cd22e677eb7e8_57868908', "localstyle");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18576431685cd1ab2f1fb0c9_92129797', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2377438525cd22e677ee779_03403124', "content");
 ?>
 
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12880420905cd1ab2f22b709_02128042', "localscript");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17429070925cd22e678065f8_99570016', "localscript");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "localstyle"} */
-class Block_12320746885cd1ab2f1f6b50_40262163 extends Smarty_Internal_Block
+class Block_15487520205cd22e677eb7e8_57868908 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'localstyle' => 
   array (
-    0 => 'Block_12320746885cd1ab2f1f6b50_40262163',
+    0 => 'Block_15487520205cd22e677eb7e8_57868908',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -72,12 +72,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "localstyle"} */
 /* {block "content"} */
-class Block_18576431685cd1ab2f1fb0c9_92129797 extends Smarty_Internal_Block
+class Block_2377438525cd22e677ee779_03403124 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_18576431685cd1ab2f1fb0c9_92129797',
+    0 => 'Block_2377438525cd22e677ee779_03403124',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -124,7 +124,8 @@ echo $_block_plugin1->form(array('attrs'=>array('action'=>"cart/index",'method'=
 while ($_block_repeat) {
 ob_start();?>
           <b>Quantity:</b>
-          <input name="quantity" type="number" min="1" required />
+          <input name="quantity" type="number" min="1"  value= "<?php echo $_smarty_tpl->tpl_vars['quantity']->value;?>
+" required />
           <p></p>
           <button type="submit" name='set'>Set Quantity</button>
           <button type="submit" name='cancel'>Cancel</button>
@@ -146,12 +147,12 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 }
 /* {/block "content"} */
 /* {block "localscript"} */
-class Block_12880420905cd1ab2f22b709_02128042 extends Smarty_Internal_Block
+class Block_17429070925cd22e678065f8_99570016 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'localscript' => 
   array (
-    0 => 'Block_12880420905cd1ab2f22b709_02128042',
+    0 => 'Block_17429070925cd22e678065f8_99570016',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

@@ -44,7 +44,7 @@
 
         {form attrs=[action=>"cart/index", method=>"get"]}
           <b>Quantity:</b>
-          <input name="quantity" type="number" min="1" required />
+          <input name="quantity" type="number" min="1"  value= "{$quantity}" required />
           <p></p>
           <button type="submit" name='set'>Set Quantity</button>
           <button type="submit" name='cancel'>Cancel</button>
