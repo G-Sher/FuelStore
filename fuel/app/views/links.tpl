@@ -4,7 +4,7 @@
 
 {* logged in non-admin *}
 {if $session->get('login') and not $session->get('login')->is_admin}
-  <li class="nav-link">{html_anchor href='/user/myOrders' text='My Orders'}</li>
+  <li class="nav-link">{html_anchor href='/user' text='My Orders'}</li>
 {/if}
 
 {* logged in admin *}
