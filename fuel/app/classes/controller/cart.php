@@ -1,4 +1,5 @@
 <?php
+define("SECONDS_PER_DAY", 3600 * 24);
 
 class Controller_Cart extends Controller_Base 
 {
@@ -160,9 +161,38 @@ class Controller_Cart extends Controller_Base
 		
 	}
 	
-	public function action_link() 
+	public function randTimeNdaysPast($days) {
+      $timestamp = time() - $days * SECONDS_PER_DAY + rand(0, SECONDS_PER_DAY);
+      return date("Y-m-d H:i:s", $timestamp);
+    }
+	public function action_makeOrder() 
 	{
-		return "cart/something";
+		$login = Session::get('login');
+		$user_id = $login->id;
+		
+		$order = Model_Order::forge();
+		$order->user_id = $user_id;
+		$order->created_at = date("Y-m-d H:i:s", time());
+		$order->save();
+		
+		$cart_item = Session::get('cart');
+		
+		foreach($cart_item as $id => $quantity)
+		{
+			$product = Model_Product::find($id);
+			
+			$item = Model_Selection::forge();
+			$item->order_id = $order->id;
+			$item->product_id = $id;
+			$item->quantity = $quantity;
+			$item->purchase_price = $product->price;
+			$item->save();
+		}
+		
+		Session::delete('cart');
+		return Response::redirect('/user/');
 	}
+	
+	
 
 }

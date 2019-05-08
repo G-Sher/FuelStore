@@ -2,7 +2,7 @@
 
 {block name="content"}
 
-  <h2>My Cart</h2>
+  <h2>Order Details</h2>
   
   <table class='table table-borderless table-sm'>
     <tr>
@@ -14,27 +14,20 @@
       <th>subtotal</th>
     </tr>
 
-    {foreach $selections as $selection}
+    {foreach $items as $item}
       <tr>
         <td>
-          {$selection->product->name}
+          {$item['name']}
         </td>
-        <td>{$selection->product->id}</td>
-        <td>{$selection->product->category->name}</td>
-        <td>${number_format($selection->purchase_price,2)}</td>
-        <td>{$selection->quantity}</td>
-{*        <td>${number_format($sub[selection->id],2)}</td>*}
+        <td>{$item['id']}</td>
+        <td>{$item['category']}</td>
+        <td>${number_format($item['purchase_price'],2)}</td>
+        <td>{$item['quantity']}</td>
+        <td>${number_format($item['sub'],2)}</td>
       </tr>    
     {/foreach}
     <tr>
-{*      <th>Total: <b>${$total_price|string_format: "%.2f"}</b></th>*}
+      <th>Total: <b>${$total_price|string_format: "%.2f"}</b></th>
     </tr>
   </table> 
-
-  {if $session->get('login') && $session->get('cart')}
-    {form attrs=[action => '/user/makeOrder', 'method'=>"GET"]}
-      <button type='submit'>Make an Order from Cart</button>
-    {/form}
-  {/if}
-
 {/block}

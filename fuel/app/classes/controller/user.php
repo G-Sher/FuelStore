@@ -35,14 +35,26 @@ class Controller_User extends Controller_Base
 		$order = Model_Order::find($id);
 		$sub = 0.00;
 		$total_price = 0.00;
-		$products = $order->products;
+//		$products = $order->products;
 		$selections = $order->selections;
 		
-//		foreach($selections as $selection)
-//		{
-//			$sub[$selection->id] = $selection->purchase_price * $selection->quantity;
-//			$total_price += $sub;
-//		}
+		foreach($selections as $selection)
+		{
+			$id = $selection->product_id;
+			$product = Model_Product::find('id');
+			
+			$items[$id] =
+				[
+					'id' => $id,
+					'name' => $selection->product->name,
+					'category' => $selection->product->category->name,
+					'purchase_price' => $selection->purchase_price,
+					'quantity' => $selection->quantity,
+					'sub' => ($selection->quantity * $selection->purchase_price),
+				];
+			
+			$total_price = number_format($total_price + $items[$id]['sub'],2);
+		}
 		
 		
 //		foreach($products as $product)
@@ -53,10 +65,9 @@ class Controller_User extends Controller_Base
 		
 		$data =
 			[
-				'products' => $products,
-				'sub' => $sub,
+				'items' => $items,
 				'total_price' => $total_price,
-				'selections' => $selections
+				
 			];
 		
 		return View::forge('user/details.tpl',$data);

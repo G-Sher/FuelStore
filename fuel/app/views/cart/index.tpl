@@ -32,7 +32,7 @@
   </table> 
 
   {if $session->get('login') && $session->get('cart')}
-    {form attrs=[action => '/user/makeOrder', 'method'=>"GET"]}
+    {form attrs=[action => '/cart/makeOrder', 'method'=>"GET"]}
       <button type='submit'>Make an Order from Cart</button>
     {/form}
   {/if}

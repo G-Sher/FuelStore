@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-06 20:49:54
+/* Smarty version 3.1.33, created on 2019-05-08 17:18:31
   from 'C:\wamp64\www\FuelStore\fuel\app\views\cart\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd0d6322d2f00_57634043',
+  'unifunc' => 'content_5cd347a79b2f45_01991859',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6e2b8d1aa6050fbaf7356441087d5d05b2125d4c' => 
     array (
       0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\cart\\index.tpl',
-      1 => 1557190188,
+      1 => 1557350304,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd0d6322d2f00_57634043 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd347a79b2f45_01991859 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10811223915cd0d632296690_98387222', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7923102995cd347a7989b35_19476800', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "content"} */
-class Block_10811223915cd0d632296690_98387222 extends Smarty_Internal_Block
+class Block_7923102995cd347a7989b35_19476800 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_10811223915cd0d632296690_98387222',
+    0 => 'Block_7923102995cd347a7989b35_19476800',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -93,14 +93,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 if (!is_callable(array($_block_plugin1, 'form'))) {
 throw new SmartyException('block tag \'form\' not callable or registered');
 }
-$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('form', array('attrs'=>array('action'=>'/user/makeOrder','method'=>"GET")));
+$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('form', array('attrs'=>array('action'=>'/cart/makeOrder','method'=>"GET")));
 $_block_repeat=true;
-echo $_block_plugin1->form(array('attrs'=>array('action'=>'/user/makeOrder','method'=>"GET")), null, $_smarty_tpl, $_block_repeat);
+echo $_block_plugin1->form(array('attrs'=>array('action'=>'/cart/makeOrder','method'=>"GET")), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
       <button type='submit'>Make an Order from Cart</button>
     <?php $_block_repeat=false;
-echo $_block_plugin1->form(array('attrs'=>array('action'=>'/user/makeOrder','method'=>"GET")), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+echo $_block_plugin1->form(array('attrs'=>array('action'=>'/cart/makeOrder','method'=>"GET")), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
 array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
   <?php }?>
