@@ -161,10 +161,6 @@ class Controller_Cart extends Controller_Base
 		
 	}
 	
-	public function randTimeNdaysPast($days) {
-      $timestamp = time() - $days * SECONDS_PER_DAY + rand(0, SECONDS_PER_DAY);
-      return date("Y-m-d H:i:s", $timestamp);
-    }
 	public function action_makeOrder() 
 	{
 		$login = Session::get('login');
@@ -192,7 +188,4 @@ class Controller_Cart extends Controller_Base
 		Session::delete('cart');
 		return Response::redirect('/user/');
 	}
-	
-	
-
 }

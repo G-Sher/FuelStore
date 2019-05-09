@@ -35,7 +35,6 @@ class Controller_User extends Controller_Base
 		$order = Model_Order::find($id);
 		$sub = 0.00;
 		$total_price = 0.00;
-//		$products = $order->products;
 		$selections = $order->selections;
 		
 		foreach($selections as $selection)
@@ -56,13 +55,6 @@ class Controller_User extends Controller_Base
 			$total_price = number_format($total_price + $items[$id]['sub'],2);
 		}
 		
-		
-//		foreach($products as $product)
-//		{
-//			$purchase_price = Model_Selection::get('purchase_price', array('where'
-//				=> array('product_id' => $product->id)));
-//		}
-		
 		$data =
 			[
 				'items' => $items,
@@ -72,5 +64,7 @@ class Controller_User extends Controller_Base
 		
 		return View::forge('user/details.tpl',$data);
 	}
+	
+	
 }
 
