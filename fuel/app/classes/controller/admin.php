@@ -129,14 +129,14 @@ class Controller_Admin extends Controller_Base
 		
 		if(is_null($trimmed))
 		{
-			return Response::redirect('addCategory');
+			return Response::redirect('admin/addCategory/');
 		}
 		
 		$categoryWithName = Model_Category::find('first', ['where' => ['name' => $trimmed]]);
 		
 		if(!is_null($categoryWithName))
 		{
-			return Response::redirect('addCategory');
+			return Response::redirect('admin/addCategory/');
 		}
 		
 		$category = Model_Category::forge();

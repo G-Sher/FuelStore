@@ -25,14 +25,17 @@ class Validators {
 			->add_rule(['unique' => $isUnique])
 		;
 
-		$validator->add('quantity', 'quantity')
+		$validator->add('price', 'price')
 			->add_rule('trim')
 			->add_rule('required')
 			->add_rule('match_pattern', '/^\d+$/')
 		;
 
 		// enter all fields, regardless of whether can generate errors or not
-		$validator->add('binding', 'binding');
+		$validator->add('category', 'category');
+		$validator->add('photo_file', 'photo_file');
+		$validator->add('description','description')
+				->add_rule('min_length',1);
 
 		// modify error messages
 		$validator
@@ -42,7 +45,7 @@ class Validators {
 		;
 
 		$validator
-			->field('quantity')
+			->field('price')
 			->set_error_message('match_pattern', 'must be non-neg. integer')
 		;    
 

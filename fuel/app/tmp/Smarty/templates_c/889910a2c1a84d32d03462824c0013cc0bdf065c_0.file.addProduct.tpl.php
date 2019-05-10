@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-09 01:18:25
+/* Smarty version 3.1.33, created on 2019-05-10 14:32:55
   from 'C:\wamp64\www\FuelStore\fuel\app\views\admin\addProduct.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd3b82154ffe2_42035495',
+  'unifunc' => 'content_5cd5c3d74dfb96_58823687',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '889910a2c1a84d32d03462824c0013cc0bdf065c' => 
     array (
       0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\admin\\addProduct.tpl',
-      1 => 1557375562,
+      1 => 1557513172,
       2 => 'file',
     ),
   ),
@@ -20,33 +20,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd3b82154ffe2_42035495 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd5c3d74dfb96_58823687 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_8869936975cd3b8214d3bf4_27926374', "localstyle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11113617955cd5c3d74b8f39_41165215', "localstyle");
 ?>
 
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2199860515cd3b8214d6a05_54206717', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5687266965cd5c3d74bc014_30718051', "content");
 ?>
 
  
-<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1140635575cd3b82154e652_16117238', "localscript");
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "localstyle"} */
-class Block_8869936975cd3b8214d3bf4_27926374 extends Smarty_Internal_Block
+class Block_11113617955cd5c3d74b8f39_41165215 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'localstyle' => 
   array (
-    0 => 'Block_8869936975cd3b8214d3bf4_27926374',
+    0 => 'Block_11113617955cd5c3d74b8f39_41165215',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -63,12 +61,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "localstyle"} */
 /* {block "content"} */
-class Block_2199860515cd3b8214d6a05_54206717 extends Smarty_Internal_Block
+class Block_5687266965cd5c3d74bc014_30718051 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_2199860515cd3b8214d6a05_54206717',
+    0 => 'Block_5687266965cd5c3d74bc014_30718051',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -77,33 +75,58 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\wamp64\\www\\FuelStore\\
 
     <h2>Add Product</h2>
  
-    <form action="addProductReentrant.php" method="post">
+    <?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['form'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['form'][0][0] : null;
+if (!is_callable(array($_block_plugin1, 'form'))) {
+throw new SmartyException('block tag \'form\' not callable or registered');
+}
+$_smarty_tpl->smarty->_cache['_tag_stack'][] = array('form', array('attrs'=>array('action'=>'/add/addBookReentrant/')));
+$_block_repeat=true;
+echo $_block_plugin1->form(array('attrs'=>array('action'=>'/add/addBookReentrant/')), null, $_smarty_tpl, $_block_repeat);
+while ($_block_repeat) {
+ob_start();?>
         <table class="table table-sm table-borderless">
 			<tr>
 				<td>Name: </td>
 				<td>
 					<input class="form-control" type="text" name="name" 
-						value="<?php echo htmlspecialchars($_smarty_tpl->tpl_vars['name']->value, ENT_QUOTES, 'UTF-8', true);?>
-" />
+						value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['name']->value)===null||$tmp==='' ? '' : $tmp);?>
+"  />
+					<span class="error"><?php echo $_smarty_tpl->tpl_vars['validator']->value->error_message('name');?>
+</span>
 				</td>
 			</tr>
 
 			<tr>
 				<td>Category: </td>
-				<td>
-					<select class="form-control" name="category">
-						<?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['category']->value,'selected'=>$_smarty_tpl->tpl_vars['category']->value),$_smarty_tpl);?>
+				
+					<td>
+						
+						<select class="form-control" name="categories">
+							<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['category']->value, 'categories');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['categories']->value) {
+?>
+							<?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['categories']->value),$_smarty_tpl);?>
 
-					</select>
-				</td>
+							<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+						</select>
+						
+					</td>	
+				
 			</tr>
 
 			<tr>
-				<td>Price ($): </td>
+				<td>Price : </td>
 				<td>
 					<input class="form-control" type="text" name="price" 
-						type="text" required
-						 /> 
+						value="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['price']->value)===null||$tmp==='' ? '' : $tmp);?>
+"  />
+					<span class="error"><?php echo $_smarty_tpl->tpl_vars['validator']->value->error_message('price');?>
+</span>
 				</td>
 			</tr>
 
@@ -119,8 +142,17 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\wamp64\\www\\FuelStore\\
 				<td>Photo: </td>
 				<td>
 					<select class="form-control" name="photo_files">
+						<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['photo_file']->value, 'photo_files');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['photo_files']->value) {
+?>
 						<?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['photo_files']->value,'selected'=>$_smarty_tpl->tpl_vars['photo_files']->value),$_smarty_tpl);?>
 
+						<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 					</select>
 				</td>
 			</tr>
@@ -134,35 +166,16 @@ $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\wamp64\\www\\FuelStore\\
 			</tr>
 
 		</table>
- 	</form>
+ 	<?php $_block_repeat=false;
+echo $_block_plugin1->form(array('attrs'=>array('action'=>'/add/addBookReentrant/')), ob_get_clean(), $_smarty_tpl, $_block_repeat);
+}
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
  
 	<h4 class="message"><?php echo (($tmp = @$_smarty_tpl->tpl_vars['message']->value)===null||$tmp==='' ? '' : $tmp);?>
 </h4>
-<?php
+	
+	<?php
 }
 }
 /* {/block "content"} */
-/* {block "localscript"} */
-class Block_1140635575cd3b82154e652_16117238 extends Smarty_Internal_Block
-{
-public $subBlocks = array (
-  'localscript' => 
-  array (
-    0 => 'Block_1140635575cd3b82154e652_16117238',
-  ),
-);
-public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
-?>
-
-  <?php echo '<script'; ?>
->
-    $("button[name='cancel']").click(function(){
-      $("input[name='quantity']").prop('disabled',true);
-    });
-  <?php echo '</script'; ?>
->
-<?php
-}
-}
-/* {/block "localscript"} */
 }

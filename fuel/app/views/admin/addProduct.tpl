@@ -12,31 +12,38 @@
 {block name="content"}
     <h2>Add Product</h2>
  
-    <form action="addProductReentrant.php" method="post">
+    {form attrs=['action' => '/add/addBookReentrant/']}
         <table class="table table-sm table-borderless">
 			<tr>
 				<td>Name: </td>
 				<td>
 					<input class="form-control" type="text" name="name" 
-						value="{$name|escape:'html'}" />
+						value="{$name|default}"  />
+					<span class="error">{$validator->error_message('name')}</span>
 				</td>
 			</tr>
 
 			<tr>
 				<td>Category: </td>
-				<td>
-					<select class="form-control" name="category">
-						{html_options options=$category selected=$category}
-					</select>
-				</td>
+				
+					<td>
+						
+						<select class="form-control" name="categories">
+							{foreach $category as $categories}
+							{html_options options=$categories }
+							{/foreach}
+						</select>
+						
+					</td>	
+				
 			</tr>
 
 			<tr>
-				<td>Price ($): </td>
+				<td>Price : </td>
 				<td>
 					<input class="form-control" type="text" name="price" 
-						type="text" required
-						{* value="{$price|escape:'html'}" />*} /> 
+						value="{$price|default}"  />
+					<span class="error">{$validator->error_message('price')}</span>
 				</td>
 			</tr>
 
@@ -52,7 +59,9 @@
 				<td>Photo: </td>
 				<td>
 					<select class="form-control" name="photo_files">
+						{foreach $photo_file as $photo_files}
 						{html_options options=$photo_files selected=$photo_files}
+						{/foreach}
 					</select>
 				</td>
 			</tr>
@@ -66,15 +75,12 @@
 			</tr>
 
 		</table>
- 	</form>
+ 	{/form}
  
 	<h4 class="message">{$message|default}</h4>
+	
+	{*
+  <pre>{$validator->error_message()|var_export}</pre>
+  *}
 {/block}
  
-{block name="localscript"}
-  <script>
-    $("button[name='cancel']").click(function(){
-      $("input[name='quantity']").prop('disabled',true);
-    });
-  </script>
-{/block}

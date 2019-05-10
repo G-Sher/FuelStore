@@ -16,7 +16,7 @@
     {/foreach}
 </ul>
 
-{form attrs=[action => '/admin/addCatReenter/', 'method'=>"GET"]}
+{form attrs=['action' => '/admin/addCatReenter/', 'method'=>"GET"]}
     <label>New Category:</label>
     <input class="form-control" type="text" name="newCat" value='{$name|default}'/>
     <button type= "submit" name="add">Add Category</button>
