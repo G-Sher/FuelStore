@@ -19,9 +19,7 @@
 {form attrs=[action => '/admin/addCatReenter/', 'method'=>"GET"]}
     <label>New Category:</label>
     <input class="form-control" type="text" name="newCat" value='{$name|default}'/>
-	<span class="error">{$validator->error_message('name')}</span>
-    </p>
     <button type= "submit" name="add">Add Category</button>
-    <button type= "submit" name="cancel">Cancel</button>
+    <button type= "submit" name="cancel">Cancel</button>]
 {/form}
 {/block}

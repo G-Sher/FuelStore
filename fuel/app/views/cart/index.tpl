@@ -13,7 +13,7 @@
       <th>quantity</th>
       <th>subtotal</th>
     </tr>
-
+{if $cart_info != 0}
     {foreach $cart_info as $product_id => $data}
       <tr>
         <td>
@@ -26,6 +26,7 @@
         <td>${number_format($data['sub'],2)}</td>
       </tr>    
     {/foreach}
+{/if}
     <tr>
       <th>Total: <b>${$total_price|string_format: "%.2f"}</b></th>
     </tr>

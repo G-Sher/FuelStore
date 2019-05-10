@@ -41,23 +41,15 @@
         {asset_img refs=$image_src attrs=['class' => 'img-fluid']}
       </td>
       <td>
-
-		{if not $session->get('login')->is_admin}
-			{form attrs=[action=>"cart/index", method=>"get"]}
-			  <b>Quantity:</b>
-			  <input name="quantity" type="number" min="1"  value= "{$quantity}" required />
-			  <p></p>
-			  <button type="submit" name='set'>Set Quantity</button>
-			  <button type="submit" name='cancel'>Cancel</button>
-			  <button type="submit" name='remove'>Remove From Cart</button>
-			{/form}
-		{/if}
 		
-		{if $session->get('login')->is_admin}
-			{form attrs=[action=>"cart/index", method=>"get"]}
-				<button type="submit" name='modify'>Modify Product</button>
-			{/form}
-		{/if}
+		{form attrs=[action=>"cart/index", method=>"get"]}
+		  <b>Quantity:</b>
+		  <input name="quantity" type="number" min="1"  value= "{$quantity}" required />
+		  <p></p>
+		  <button type="submit" name='set'>Set Quantity</button>
+		  <button type="submit" name='cancel'>Cancel</button>
+		  <button type="submit" name='remove'>Remove From Cart</button>
+		{/form}	
 		
       </td>
     </tr>

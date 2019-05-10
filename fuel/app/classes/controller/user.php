@@ -59,6 +59,7 @@ class Controller_User extends Controller_Base
 			[
 				'items' => $items,
 				'total_price' => $total_price,
+				'order' => $order
 				
 			];
 		

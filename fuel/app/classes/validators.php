@@ -112,7 +112,7 @@ class Validators {
 		
 		$validator = Validation::forge();
 		
-		$validator->add('name','name')
+		$validator->add('name')
 				->add_rule('trim')
 				->add_rule('min_length',1);
 		

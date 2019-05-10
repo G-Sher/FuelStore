@@ -98,9 +98,7 @@ class Controller_Admin extends Controller_Base
 	}
 	
 	public function action_addCategory()
-	{
-		$validator = Validation::forge();
-		
+	{		
 		foreach (Model_Category::find('all') as $rec) 
 		{
 			$category[$rec->id] = $rec->name;
@@ -112,7 +110,7 @@ class Controller_Admin extends Controller_Base
 			];
 		
 		$view = View::forge('admin/addCategory.tpl', $data);
-		$view->set_safe('validator', $validator);
+		
 		return $view;
 	}
 	
@@ -127,31 +125,25 @@ class Controller_Admin extends Controller_Base
 			return Response::redirect('/admin/addCategory/');
 		}
 		
-		$validator = Validators::addCategoryValidator();
- 
-		$message = "";
-		try 
-		{
-			$validated = $validator->run($newCat);
-			
-			if (!$validated) 
-			{
-				throw new Exception();
-			}
-			
-			$validData = $validator->validated();
-			
-			$category = Model_Category::forge();
-			$category->name = $validData('name');
-			$category->save();
-			
-			return Response::redirect("/");
+		$trimmed = trim($newCat);
 		
-		}
-		catch (Exception $ex) 
+		if(is_null($trimmed))
 		{
-			$message = $ex->getMessage();
+			return Response::redirect('addCategory');
 		}
+		
+		$categoryWithName = Model_Category::find('first', ['where' => ['name' => $trimmed]]);
+		
+		if(!is_null($categoryWithName))
+		{
+			return Response::redirect('addCategory');
+		}
+		
+		$category = Model_Category::forge();
+		$category->name = $trimmed;
+		$category->save();
+		
+		return Response::redirect("/");
 	}
 }
 

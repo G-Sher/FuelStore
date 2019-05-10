@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-08 17:18:31
+/* Smarty version 3.1.33, created on 2019-05-09 23:27:03
   from 'C:\wamp64\www\FuelStore\fuel\app\views\cart\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd347a79b2f45_01991859',
+  'unifunc' => 'content_5cd4ef875266c2_72000617',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6e2b8d1aa6050fbaf7356441087d5d05b2125d4c' => 
     array (
       0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\cart\\index.tpl',
-      1 => 1557350304,
+      1 => 1557458820,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd347a79b2f45_01991859 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd4ef875266c2_72000617 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7923102995cd347a7989b35_19476800', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6435248825cd4ef874fb045_23619922', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "content"} */
-class Block_7923102995cd347a7989b35_19476800 extends Smarty_Internal_Block
+class Block_6435248825cd4ef874fb045_23619922 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_7923102995cd347a7989b35_19476800',
+    0 => 'Block_6435248825cd4ef874fb045_23619922',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -56,7 +56,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
       <th>quantity</th>
       <th>subtotal</th>
     </tr>
-
+<?php if ($_smarty_tpl->tpl_vars['cart_info']->value != 0) {?>
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['cart_info']->value, 'data', false, 'product_id');
 if ($_from !== null) {
@@ -81,7 +81,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['product_id']->value => $_smarty_tpl->
     <?php
 }
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+}?>
     <tr>
       <th>Total: <b>$<?php echo sprintf("%.2f",$_smarty_tpl->tpl_vars['total_price']->value);?>
 </b></th>

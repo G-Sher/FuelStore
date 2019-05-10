@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-10 08:31:41
-  from 'C:\wamp64\www\FuelStore\fuel\app\views\home\showProduct.tpl' */
+/* Smarty version 3.1.33, created on 2019-05-09 22:57:06
+  from 'C:\wamp64\www\FuelStore\fuel\app\views\admin\showProduct.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd56f2d6935d1_75632691',
+  'unifunc' => 'content_5cd4e88203a6e0_88148976',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '939f52e1ce100862a6e18ec7ee83b2fd6dbbb7bc' => 
+    '9736acd64cb5e3407ed2666d981a62971a01c638' => 
     array (
-      0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\home\\showProduct.tpl',
-      1 => 1557461040,
+      0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\admin\\showProduct.tpl',
+      1 => 1557455974,
       2 => 'file',
     ),
   ),
@@ -20,36 +20,34 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd56f2d6935d1_75632691 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd4e88203a6e0_88148976 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_483710095cd56f2d674a70_53358509', "localstyle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6649907135cd4e88201dc41_56317288', "localstyle");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14665221575cd56f2d677eb6_14530228', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_4529713465cd4e882020e23_43105205', "content");
 ?>
 
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10242613545cd56f2d6917f5_37937629', "localscript");
-?>
-
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5436330195cd4e8820379b5_25033647', "localscript");
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "localstyle"} */
-class Block_483710095cd56f2d674a70_53358509 extends Smarty_Internal_Block
+class Block_6649907135cd4e88201dc41_56317288 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'localstyle' => 
   array (
-    0 => 'Block_483710095cd56f2d674a70_53358509',
+    0 => 'Block_6649907135cd4e88201dc41_56317288',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -72,12 +70,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "localstyle"} */
 /* {block "content"} */
-class Block_14665221575cd56f2d677eb6_14530228 extends Smarty_Internal_Block
+class Block_4529713465cd4e882020e23_43105205 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_14665221575cd56f2d677eb6_14530228',
+    0 => 'Block_4529713465cd4e882020e23_43105205',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -113,7 +111,6 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
       </td>
       <td>
-		
 		<?php $_block_plugin1 = isset($_smarty_tpl->smarty->registered_plugins['block']['form'][0][0]) ? $_smarty_tpl->smarty->registered_plugins['block']['form'][0][0] : null;
 if (!is_callable(array($_block_plugin1, 'form'))) {
 throw new SmartyException('block tag \'form\' not callable or registered');
@@ -123,18 +120,11 @@ $_block_repeat=true;
 echo $_block_plugin1->form(array('attrs'=>array('action'=>"cart/index",'method'=>"get")), null, $_smarty_tpl, $_block_repeat);
 while ($_block_repeat) {
 ob_start();?>
-		  <b>Quantity:</b>
-		  <input name="quantity" type="number" min="1"  value= "<?php echo $_smarty_tpl->tpl_vars['quantity']->value;?>
-" required />
-		  <p></p>
-		  <button type="submit" name='set'>Set Quantity</button>
-		  <button type="submit" name='cancel'>Cancel</button>
-		  <button type="submit" name='remove'>Remove From Cart</button>
+			<button type="submit" name='modify'>Modify Product</button>
 		<?php $_block_repeat=false;
 echo $_block_plugin1->form(array('attrs'=>array('action'=>"cart/index",'method'=>"get")), ob_get_clean(), $_smarty_tpl, $_block_repeat);
 }
-array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>	
-		
+array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
       </td>
     </tr>
   </table>
@@ -147,12 +137,12 @@ array_pop($_smarty_tpl->smarty->_cache['_tag_stack']);?>
 }
 /* {/block "content"} */
 /* {block "localscript"} */
-class Block_10242613545cd56f2d6917f5_37937629 extends Smarty_Internal_Block
+class Block_5436330195cd4e8820379b5_25033647 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'localscript' => 
   array (
-    0 => 'Block_10242613545cd56f2d6917f5_37937629',
+    0 => 'Block_5436330195cd4e8820379b5_25033647',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

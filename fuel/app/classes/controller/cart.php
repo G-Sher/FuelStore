@@ -30,6 +30,7 @@ class Controller_Cart extends Controller_Base
 
 	public function action_show($product_id) 
 	{
+		
 		$product = Model_Product::find($product_id);
 		$image_src = "products/$product->photo_file";
 		Session::set_flash('product_id', $product_id);
@@ -56,7 +57,7 @@ class Controller_Cart extends Controller_Base
 				'quantity' => $quantity
 			];
 		}
-
+		
 		$view = View::forge('home/showProduct.tpl', $data);
 		$view->set_safe('description', $product->description);
 		
@@ -100,34 +101,8 @@ class Controller_Cart extends Controller_Base
 		//if we're coming to check out the cart but not adding anything
 		else 
 		{			
-			//if the cart doesn't have things in it
-			if( null == Session::get('cart'))
-			{
-				
-//				echo "fuck you!";
-				$cart_info = 
-				[
-					'id' => ".",
-					'name' => ".",
-					'category' => ".",
-					'price' => ".",
-					'quantity' => ".",
-					'sub' => "." 
-				];
-				
-				$data = 
-				[
-					'cart_info' => $cart_info,
-					'total_price' => $total_price,
-				];
-
-//				var_dump($cart_info);
-//				return false;
-				return View::forge('cart/index.tpl', $data);
-			}
-			
 			//if the cart has things in it
-			if(null !== Session::get('cart'))
+			if(count(Session::get('cart')) > 0)
 			{
 				foreach(Session::get('cart') as $key => $cart)
 				{
@@ -147,6 +122,24 @@ class Controller_Cart extends Controller_Base
 
 					$total_price = number_format($total_price + $cart_info[$id]['sub'],2);
 				}
+			}
+			
+			//if the cart doesn't have things in it
+			else
+			{
+				
+//				echo "fuck you!";
+				$cart_info = 0;
+				
+//				$data = 
+//				[
+//					'cart_info' => $cart_info,
+//					'total_price' => $total_price,
+//				];
+//
+////				var_dump($cart_info);
+////				return false;
+//				return View::forge('cart/index.tpl', $data);
 			}
 			
 		}
