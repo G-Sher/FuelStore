@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-10 14:32:55
+/* Smarty version 3.1.33, created on 2019-05-10 20:01:58
   from 'C:\wamp64\www\FuelStore\fuel\app\views\admin\addProduct.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd5c3d74dfb96_58823687',
+  'unifunc' => 'content_5cd610f600c485_06740004',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '889910a2c1a84d32d03462824c0013cc0bdf065c' => 
     array (
       0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\admin\\addProduct.tpl',
-      1 => 1557513172,
+      1 => 1557532915,
       2 => 'file',
     ),
   ),
@@ -20,31 +20,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd5c3d74dfb96_58823687 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd610f600c485_06740004 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11113617955cd5c3d74b8f39_41165215', "localstyle");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13804116135cd610f5f25264_58514581', "localstyle");
 ?>
 
  
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5687266965cd5c3d74bc014_30718051', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18481367305cd610f5f28c39_66727199', "content");
 ?>
 
  
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "layout.tpl");
 }
 /* {block "localstyle"} */
-class Block_11113617955cd5c3d74b8f39_41165215 extends Smarty_Internal_Block
+class Block_13804116135cd610f5f25264_58514581 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'localstyle' => 
   array (
-    0 => 'Block_11113617955cd5c3d74b8f39_41165215',
+    0 => 'Block_13804116135cd610f5f25264_58514581',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -61,12 +61,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "localstyle"} */
 /* {block "content"} */
-class Block_5687266965cd5c3d74bc014_30718051 extends Smarty_Internal_Block
+class Block_18481367305cd610f5f28c39_66727199 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_5687266965cd5c3d74bc014_30718051',
+    0 => 'Block_18481367305cd610f5f28c39_66727199',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -101,13 +101,16 @@ ob_start();?>
 				
 					<td>
 						
-						<select class="form-control" name="categories">
+						<select class="form-control" name="category">
 							<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['category']->value, 'categories');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['categories']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
 ?>
-							<?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['categories']->value),$_smarty_tpl);?>
+							<?php ob_start();
+echo (($tmp = @$_smarty_tpl->tpl_vars['category']->value)===null||$tmp==='' ? '' : $tmp);
+$_prefixVariable1 = ob_get_clean();
+echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['category']->value,'selected'=>$_prefixVariable1),$_smarty_tpl);?>
 
 							<?php
 }
@@ -133,7 +136,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 			<tr>
 				<td>Description: </td>
 				<td>
-					<textarea class="form-control" type="text" name="description" required>
+					<textarea class="form-control" type="text" name="description" value= "<?php echo (($tmp = @$_smarty_tpl->tpl_vars['description']->value)===null||$tmp==='' ? '' : $tmp);?>
+" required>
 					</textarea>
 				</td>
 			</tr>
@@ -141,13 +145,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <tr>
 				<td>Photo: </td>
 				<td>
-					<select class="form-control" name="photo_files">
+					<select class="form-control" name="photo_file">
 						<?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['photo_file']->value, 'photo_files');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['photo_files']->value, 'photo_file');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['photo_files']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['photo_file']->value) {
 ?>
-						<?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['photo_files']->value,'selected'=>$_smarty_tpl->tpl_vars['photo_files']->value),$_smarty_tpl);?>
+						<?php echo smarty_function_html_options(array('options'=>$_smarty_tpl->tpl_vars['photo_file']->value,'selected'=>$_smarty_tpl->tpl_vars['photo_file']->value),$_smarty_tpl);?>
 
 						<?php
 }

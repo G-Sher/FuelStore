@@ -28,12 +28,14 @@ class Validators {
 		$validator->add('price', 'price')
 			->add_rule('trim')
 			->add_rule('required')
-			->add_rule('match_pattern', '/^\d+$/')
+//			->add_rule('match_pattern', '/^\d+$/')
 		;
 
 		// enter all fields, regardless of whether can generate errors or not
-		$validator->add('category', 'category');
-		$validator->add('photo_file', 'photo_file');
+		$validator->add('category', 'category')
+				->add_rule('required');
+		$validator->add('photo_file', 'photo_file')
+				->add_rule('required');
 		$validator->add('description','description')
 				->add_rule('min_length',1);
 

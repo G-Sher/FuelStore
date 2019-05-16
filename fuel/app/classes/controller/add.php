@@ -17,20 +17,33 @@ class Controller_Add extends Controller_Base
 		{
 			return Response::redirect('authenticate/login');
 		}
-		
-		$category_recs = Model_Category::find('all', ['order_by' => 'name']);
-		$products = Model_Product::find('all', ['order_by' => 'photo_file']);
-		
-		foreach($products as $product)
-		{
-			$photo_files = $product->photo_file;
-		} 
-		foreach($category_recs as $rec) 
-		{
-			$categories[$rec->id] = $rec->name;
-		}
 	}
 	
+	private function getPhotos()
+	{
+		$photos_dir = DOCROOT . "assets/img/products/";
+		$photoFiles = array_diff(scandir($photos_dir), [".", ".."]);
+//		$products = Model_Product::find('all',['order_by' => 'photo_file']);
+		
+		foreach($photoFiles as $product)
+		{
+			$photo_files[] = $product;
+		} 
+		
+		return $photo_files;
+	}
+	
+	private function getCategories()
+	{
+		$category_recs = Model_Category::find('all', ['order_by' => 'name']);
+		
+		foreach($category_recs as $rec) 
+		{
+			$category[$rec->id] = $rec->name;
+		}
+		
+		return $category;
+	}
 	public function action_index()
 	{
 		
@@ -146,10 +159,6 @@ class Controller_Add extends Controller_Base
 			'photo_files' => $photo_files
 		];
 	}
-	
-	private function getBookBindings() {
-    return ["paper" => "paper", "cloth" => "cloth"];
-  }
  
   public function action_addBook() {
     //return "addBook";
@@ -157,20 +166,24 @@ class Controller_Add extends Controller_Base
     // When initial and reentrant controllers are separate, no validation is
     // done on initial entry; so we just need a "placeholder" for validator.
     $validator = Validation::forge();
-	$category_recs = Model_Category::find('all', ['order_by' => 'name']);
-	$products = Model_Product::find('all', ['order_by' => 'photo_file']);
+
+    $allPhotos = $this->getPhotos();
+	$index = 0;
+	
+	foreach($allPhotos as $all)
+	{
+		$unique = Model_Product::find('first', ['where' => ['photo_file' => $all]]);
 		
-	foreach($products as $product)
-	{
-		$photo_files = $product->photo_file;
-	} 
-	foreach($category_recs as $rec) 
-	{
-		$categories[$rec->id] = $rec->name;
+		if (is_null($unique))
+		{
+			$photo_files[$index] = $all;
+		}
+		
+		$index++;
 	}
-    
+	
 	$data = [
-        'category' => $categories,
+        'categories' => $this->getCategories(),
 		'photo_files' => $photo_files
     ];
  
@@ -199,7 +212,7 @@ class Controller_Add extends Controller_Base
  
       $book = Model_Product::forge();
       $book->name = $validData['name'];
-      $book->category = $validData['category'];
+      $book->category_id = $validData['category'];
       $book->price = $validData['price'];
 	  $book->description = $validData['description'];
 	  $book->photo_file = $validData['photo_file'];
@@ -215,10 +228,10 @@ class Controller_Add extends Controller_Base
     $data = [
         
         'name' => Input::post('name'),
-        'category' => Input::post('categories'),
+        'categories' => Input::post('categories'),
         'price' => Input::post('price'),
 		'description' => Input::post('description'),
-		'photo_file' => Input::post('photo_file'),
+		'photo_files' => Input::post('photo_files'),
         'message' => $message,
     ];
  

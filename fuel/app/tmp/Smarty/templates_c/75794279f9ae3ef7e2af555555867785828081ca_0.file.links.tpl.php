@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-05-10 12:40:46
+/* Smarty version 3.1.33, created on 2019-05-10 22:49:37
   from 'C:\wamp64\www\FuelStore\fuel\app\views\links.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5cd5a98e7232b8_75701512',
+  'unifunc' => 'content_5cd63841d78027_45096996',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '75794279f9ae3ef7e2af555555867785828081ca' => 
     array (
       0 => 'C:\\wamp64\\www\\FuelStore\\fuel\\app\\views\\links.tpl',
-      1 => 1557506446,
+      1 => 1557542977,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5cd5a98e7232b8_75701512 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cd63841d78027_45096996 (Smarty_Internal_Template $_smarty_tpl) {
 if (!$_smarty_tpl->tpl_vars['session']->value->get('login') || !$_smarty_tpl->tpl_vars['session']->value->get('login')->is_admin) {?>
   <li class="nav-link"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['html_anchor'][0], array( array('href'=>"/cart/",'text'=>"Cart"),$_smarty_tpl ) );?>
 </li>
+  
 <?php }?>
 
 <?php if ($_smarty_tpl->tpl_vars['session']->value->get('login') && !$_smarty_tpl->tpl_vars['session']->value->get('login')->is_admin) {?>
@@ -38,9 +39,12 @@ if (!$_smarty_tpl->tpl_vars['session']->value->get('login') || !$_smarty_tpl->tp
 </li>
   <li class="nav-link"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['html_anchor'][0], array( array('href'=>'/admin/addCategory','text'=>'Add Category'),$_smarty_tpl ) );?>
 </li>
-<?php }?>
-
-<?php if ($_smarty_tpl->tpl_vars['session']->value->get('login')) {?>
+<?php }
+if (!$_smarty_tpl->tpl_vars['session']->value->get('login')) {?>
+<li class="nav-link"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['html_anchor'][0], array( array('href'=>"/home/accountCreate/",'text'=>"Create Account"),$_smarty_tpl ) );?>
+</li>
+<?php }
+if ($_smarty_tpl->tpl_vars['session']->value->get('login')) {?>
   <li class="nav-link"><?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['html_anchor'][0], array( array('href'=>'/authenticate/logout','text'=>'Logout'),$_smarty_tpl ) );?>
 </li>
 <?php } else { ?>

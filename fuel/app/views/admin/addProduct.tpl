@@ -28,9 +28,9 @@
 				
 					<td>
 						
-						<select class="form-control" name="categories">
-							{foreach $category as $categories}
-							{html_options options=$categories }
+						<select class="form-control" name="category">
+							{foreach $categories as $category}
+							{html_options options=$category selected= {$category|default}}
 							{/foreach}
 						</select>
 						
@@ -50,7 +50,7 @@
 			<tr>
 				<td>Description: </td>
 				<td>
-					<textarea class="form-control" type="text" name="description" required>
+					<textarea class="form-control" type="text" name="description" value= "{$description|default}" required>
 					</textarea>
 				</td>
 			</tr>
@@ -58,9 +58,9 @@
             <tr>
 				<td>Photo: </td>
 				<td>
-					<select class="form-control" name="photo_files">
-						{foreach $photo_file as $photo_files}
-						{html_options options=$photo_files selected=$photo_files}
+					<select class="form-control" name="photo_file">
+						{foreach $photo_files as $photo_file}
+						{html_options options=$photo_file selected=$photo_file}
 						{/foreach}
 					</select>
 				</td>

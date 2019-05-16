@@ -91,4 +91,46 @@
 			
 			return View::forge('home/index.tpl', $data);
 		}
+		
+		public function action_accountCreate()
+		{
+			if (!is_null(Session::get('login'))) 
+			{
+				return Response::redirect("/");
+			}
+			
+			$view = View::forge("home/createAccount.tpl");
+			$view->set('username', Session::get_flash('username'));
+			$view->set('email', Session::get_flash('email'));
+			return $view;
+		}
+		
+		public function action_accountCreateReenter()
+		{
+			if (!is_null(Input::post('cancel'))) 
+			{
+				return Response::redirect("/");
+			}
+			
+			$username = Input::post('username');
+			$password = Input::post('password');
+			$confirm = Input::post('confirm');
+			$email = Input::post('email');
+			$trim_username = trim($username);
+			$trim_email = trim($email);
+			
+			$duplicate = Model_User::find('first', [
+				'where'=> [ "name" => $trim_username ],
+			]);
+			
+			if (is_null($duplicate)) 
+			{
+				$user = Model_User::forge();
+				$user->name = $trim_username;
+				$user->password = $password;
+				$user->email = $trim_email;
+				$user->save();
+				return Response::redirect('/');
+			}
+		}
 	}
